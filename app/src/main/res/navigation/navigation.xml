@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainMenu">
+    <fragment
+        android:id="@+id/questions"
+        android:name="com.emrsa.quizapp.view.Questions"
+        android:label="fragment_questions"
+        tools:layout="@layout/fragment_questions" >
+        <action
+            android:id="@+id/action_questions_to_showQuestion"
+            app:destination="@id/showQuestion" />
+        <argument
+            android:name="question_number"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_questions_to_answerCheck"
+            app:destination="@id/answerCheck" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.emrsa.quizapp.view.MainMenu"
+        android:label="activity_main_menu"
+        tools:layout="@layout/activity_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_questions2"
+            app:destination="@id/questions" />
+    </fragment>
+    <fragment
+        android:id="@+id/showQuestion"
+        android:name="com.emrsa.quizapp.view.ShowQuestion"
+        android:label="fragment_show_question"
+        tools:layout="@layout/fragment_show_question" >
+        <action
+            android:id="@+id/action_showQuestion_to_questions"
+            app:destination="@id/questions" />
+        <action
+            android:id="@+id/action_showQuestion_to_answerCheck"
+            app:destination="@id/answerCheck" />
+    </fragment>
+    <fragment
+        android:id="@+id/answerCheck"
+        android:name="com.emrsa.quizapp.view.AnswerCheck"
+        android:label="fragment_answer_check"
+        tools:layout="@layout/fragment_answer_check">
+        <action
+            android:id="@+id/action_answerCheck_to_showQuestion"
+            app:destination="@id/showQuestion" />
+        <action
+            android:id="@+id/action_answerCheck_to_results"
+            app:destination="@id/results" />
+    </fragment>
+    <fragment
+        android:id="@+id/results"
+        android:name="com.emrsa.quizapp.view.Results"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results" >
+        <action
+            android:id="@+id/action_results_to_mainMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
+</navigation>
